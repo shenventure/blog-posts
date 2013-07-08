@@ -1,0 +1,12 @@
+<% content_for :title do %>
+   Users Index
+<% end %>
+
+<h1>Users Index</h1>
+
+<!-- <p>Find me in app/views/users/index.html.erb</p> -->
+
+
+<% @Users.each do |user| %>
+<p><%= user.first_name + ' ' + user.last_name%></p>
+<% end %>

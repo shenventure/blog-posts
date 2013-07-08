@@ -1,0 +1,11 @@
+<% content_for :title do %>
+   Posts Index
+<% end %>
+
+<h1>Posts Index</h1>
+<!-- <p>Find me in app/views/posts/index.html.erb</p> -->
+
+<% @Post.each do |post| %>
+<p><%= post.title %> </p>
+<p><%= post.content %> </p>
+<% end %>
