@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130706012057) do
+ActiveRecord::Schema.define(:version => 20130708224416) do
 
   create_table "blogs", :force => true do |t|
     t.string   "name"
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(:version => 20130706012057) do
     t.string   "email_address"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.string   "password"
   end
 
 end
