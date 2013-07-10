@@ -1,0 +1,27 @@
+<h2>Displaying User <%=@show_user.id%></h2>
+
+<p>
+	<% if defined? flash %>
+	<%= flash[:message] %>
+	<% end %>
+</p>
+
+<p>
+	<% if defined? notice %>
+	<%= notice %>
+	<% end %>
+</p>	
+
+<%= @show_user.first_name + ' ' + @show_user.last_name %> <br>
+<%= @show_user.email_address %>
+
+
+<form action="/users/<%=@show_user.id%>" method="post" >
+	<input type="hidden" name="_method" value="delete">
+	<input type="submit" value="Delete">
+</form>
+
+<p><%= link_to "Edit User", edit_user_path %></p>
+<p><%= link_to "Delete User", new_user_path %></p>
+<p><%= link_to "Show All Users", users_path %></p>
+

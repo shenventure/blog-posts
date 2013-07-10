@@ -2,12 +2,29 @@
    Users Index
 <% end %>
 
-<h1>Users Index</h1>
 
-<!-- <p>Find me in app/views/users/index.html.erb</p> -->
+<div class = "container span6" >
+	<% if defined? notice %>
+	<h3><%= notice %> </h3>
+	<% end %>
 
-	<% @Users.each do |user| %>	
-		<p><%= user.first_name + ' ' + user.last_name%></p>
-		<p><%= user.email_address %></p>
-<% end %>
+	<h1>Display All Users</h1>
 
+	<!-- <p>Find me in app/views/users/index.html.erb</p> -->
+
+
+	<table class="table">
+		<tr>
+			<th>Name</th>
+			<th>Email</th>
+		<% @User.each do |user| %>	
+		<tr>
+			<td><%="#{user.first_name} #{user.last_name}"%></td>
+			<td><%= user.email_address %></td>
+			<td><%= link_to 'Edit', edit_user_path(user.id) %></td>
+			<td><%= button_to 'Delete', user, method: :delete %></td>
+		</tr>	
+		<% end %>
+	</table>	
+
+</div>

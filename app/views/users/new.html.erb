@@ -1,17 +1,36 @@
 <% content_for :title do %>
-   Users New
+   Add a New User
 <% end %>
 
- <h1>Users New</h1>
+ <h1>New User Registration</h1>
 
-<p>Find me in app/views/users/new.html.erb</p>
+<% if defined? flash %>
+	<% if flash[:success] %>
+		<p><%= flash[:success] %></p>
+	<% elsif flash[:errors] %>
+		<% flash[:errors].each do |message| %>
+		    <p><%= message %></p>
+		   <% end %>
+	<% end %>
+<% end %>
 
-<form>
-	<label>First Name:</label>
-	<input type="text" name="first_name"><br>
-	<label>Last Name:</label>
-	<input type="text" name="last_name"> <br>
-	<label>Email Address:</label>
-	<input type="text" name="email_address"> <br>
-	<input type="submit" value="Submit">
-</form>
+<!-- <form action="/users" method="post">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  <label>*First Name</label>
+  <input type="text" name="user[first_name]" placeholder="First name" /><br>
+  <label>*Last Name</label>
+  <input type="text" name="user[last_name]" placeholder="Last name" /><br>
+  <label>*Email Address</label>
+  <input type="text" name="user[email_address]" placeholder="Email Address" /><br>
+  <label>*Password</label>
+  <input type="password" name="user[password]" placeholder="Password" /><br>
+  <input type="submit" value="Add User" />
+</form> -->
+
+<%= simple_form_for @User do |user| %>
+<%= user.input :first_name %>
+<%= user.input :last_name %>
+<%= user.input :email_address %>
+<%= user.input :password %>
+<%= user.button :submit %>
+<% end %>
